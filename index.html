@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicode Alumni</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- GLOW BLOBS -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- NAV -->
+    <nav>
+        <a class="nav-logo" href="#">
+            <img src="images/logo.png" alt="Solicode" style="height: 88px;">
+            <span style="color:var(--muted); margin-left: -5px;">- ALUMNI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Réseau</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#join">Rejoindre</a></li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIBmWB9w_yhSmlU2kKXzIRruyi4ViI-cz9RGdixICE_QmEcA/viewform"
+            target="_blank" class="nav-cta">
+            <i data-lucide="plus"></i>
+            Rejoindre
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-tag">Réseau Alumni · Solicode</div>
+
+            <h1>
+                Connectez.<br>
+                <span class="outline">Grandissez.</span><br>
+                <span class="accent">Impactez.</span>
+            </h1>
+
+            <p>
+                La plateforme qui fédère toutes les générations de diplômés Solicode pour stimuler l'échange
+                d'expertises
+                et créer des synergies professionnelles durables entre les talents du digital.
+            </p>
+
+            <div class="hero-btns">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIBmWB9w_yhSmlU2kKXzIRruyi4ViI-cz9RGdixICE_QmEcA/viewform"
+                    target="_blank" class="btn-primary">
+                    Rejoindre le réseau
+                    <div class="btn-icon">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+                </a>
+                <a href="#features" class="btn-ghost">
+                    <i data-lucide="search" style="width:18px"></i>
+                    Explorer la communauté
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <i data-lucide="shield-check"></i>
+                Accès pour tous les lauréats
+            </div>
+
+            <div class="stats-strip">
+                <div class="stat">
+                    <div class="stat-num">1.5K+</div>
+                    <div class="stat-label">Diplômés (Tous ans)</div>
+                </div>
+                <!-- <div class="stat">
+                    <div class="stat-num">12</div>
+                    <div class="stat-label">Pays représentés</div>
+                </div> -->
+                <div class="stat">
+                    <div class="stat-num">98%</div>
+                    <div class="stat-label">Insertion pro</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="qr-card">
+                <div class="qr-card-label">// carte_alumni.id</div>
+
+                <div class="qr-placeholder">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://docs.google.com/forms/d/e/1FAIpQLSdIBmWB9w_yhSmlU2kKXzIRruyi4ViI-cz9RGdixICE_QmEcA/viewform"
+                        alt="QR Code" style="width: 180px; height: 180px;">
+                    <span>Scanner pour rejoindre</span>
+                </div>
+
+                <div class="qr-meta">
+                    <div class="qr-meta-name">[ Prénom Nom ]</div>
+                    <div class="qr-meta-role">Talent Digital</div>
+                </div>
+
+                <div class="qr-badge">
+                    Alumni ID · <span>#SCL-2024-XXXX</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <div class="section-tag">// 01 — Ce que nous offrons</div>
+            <div class="section-title">Un réseau conçu<br>pour les <span class="y">bâtisseurs</span> du digital</div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="users"></i></div>
+                <h3>Networking inter-générationnel</h3>
+                <p>Connectez-vous avec des alumni de toutes les promotions partageant votre stack ou votre vision.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="briefcase"></i></div>
+                <h3>Opportunités carrière</h3>
+                <p>Accédez à un flux exclusif d'offres d'emploi et de missions partagées par nos partenaires.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="zap"></i></div>
+                <h3>Partage d'expertise</h3>
+                <p>Ateliers, talks et sessions de pair-programming animés par les experts de la communauté.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="id-card"></i></div>
+                <h3>Profil Alumni Digital</h3>
+                <p>Votre carte d'identité professionnelle — projets et compétences — accessible via QR code.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="globe"></i></div>
+                <h3>Portée internationale</h3>
+                <p>Un réseau qui dépasse les frontières pour ouvrir des portes sur le marché mondial du travail.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i data-lucide="graduation-cap"></i></div>
+                <h3>Mentorat structuré</h3>
+                <p>Un système reliant les seniors aux juniors pour accélérer la progression de chaque diplômé.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- TERMINAL -->
+    <section class="terminal-section" id="about">
+        <div class="terminal-text">
+            <div class="section-tag">// 02 — Notre mission</div>
+            <div class="section-title" style="margin-bottom:20px">
+                Construire l'écosystème <span class="y">tech</span> de demain
+            </div>
+            <p style="color:var(--muted);line-height:1.8;font-size:.95rem;margin-bottom:28px">
+                Solicode Alumni accompagne chaque lauréat dans son évolution de carrière tout en consolidant
+                l'impact de notre communauté sur le marché du travail national et international.
+            </p>
+            <p style="color:var(--muted);line-height:1.8;font-size:.95rem">
+                Ce n'est pas simplement un répertoire de contacts — c'est une infrastructure vivante
+                pour les talents du digital qui veulent aller plus loin, ensemble.
+            </p>
+        </div>
+
+        <div class="terminal-box">
+            <div class="terminal-bar">
+                <div class="t-dot r"></div>
+                <div class="t-dot y"></div>
+                <div class="t-dot g"></div>
+                <div class="terminal-title">alumni_network.js</div>
+            </div>
+            <div class="terminal-body">
+                <div><span class="t-muted">// Solicode Alumni Platform</span></div>
+                <div><span class="t-muted">// v1.0.0 — Réseau Multi-Promo</span></div>
+                <div>&nbsp;</div>
+                <div><span class="t-blue">const</span> <span class="t-yellow">alumni</span> <span class="t-white">=
+                        {</span></div>
+                <div>&nbsp;&nbsp;<span class="t-green">mission</span><span class="t-white">:</span> <span
+                        class="t-yellow">"Impact inter-générationnel"</span><span class="t-white">,</span></div>
+
+                <div>&nbsp;&nbsp;<span class="t-green">connect</span><span class="t-white">: () =></span> <span
+                        class="t-yellow">"Rejoindre"</span></div>
+                <div><span class="t-white">};</span></div>
+                <div>&nbsp;</div>
+                <div><span class="t-blue">alumni</span><span class="t-white">.</span><span
+                        class="t-green">connect</span><span class="t-white">();</span></div>
+                <div><span class="t-muted">→</span> <span class="t-green">"Bienvenue dans le réseau global ✓"</span>
+                </div>
+                <div>&nbsp;</div>
+                <div><span class="t-muted">$</span> <span class="t-white">_</span>
+                    <div class="t-cursor" style="display:inline-block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- JOIN -->
+    <section class="join-section" id="join">
+        <div class="join-card">
+            <div class="section-tag" style="margin-bottom: 15px;">// 03 — Rejoindre</div>
+            <h2>Prêt à propulser votre <span class="y">carrière</span> ?</h2>
+            <p>
+                Rejoignez plus de 1,500 diplômés déjà actifs dans le réseau. Échangez, apprenez et accédez aux
+                meilleures
+                opportunités du marché.
+            </p>
+            <div class="join-qr-container">
+                <div class="join-qr">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://docs.google.com/forms/d/e/1FAIpQLSdIBmWB9w_yhSmlU2kKXzIRruyi4ViI-cz9RGdixICE_QmEcA/viewform"
+                        alt="QR Code" style="width: 150px; height: 150px;">
+                </div>
+                <div class="scan-instruction">
+                    <i data-lucide="scan"></i>
+                    Scannez pour rejoindre
+                </div>
+            </div>
+            <div style="margin-top: 30px; font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--muted);">
+                Inscription gratuite & réservée aux lauréats
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="Solicode" style="height: 80px;">
+            <span
+                style="color:var(--muted); margin-left: -5px; font-family: 'Space Mono', monospace; font-size: .6rem; letter-spacing: .1em;">-
+                ALUMNI</span>
+        </div>
+        <div class="footer-copy">© 2026 Solicode · Tous droits réservés</div>
+        <div class="footer-links">
+            <!-- <a href="#">Confidentialité</a>
+            <a href="#">Contact</a> -->
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+</body>
+
+</html>
