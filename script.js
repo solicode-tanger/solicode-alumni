@@ -54,7 +54,10 @@ async function loadAlumniData() {
                 inscritsCount++;
                 const nom = cells[0].replace(/^"|"$/g, '').trim();
                 const prenom = cells[1].replace(/^"|"$/g, '').trim();
-                const portfolio = cells[2].replace(/^"|"$/g, '').trim();
+                let portfolio = cells[2].replace(/^"|"$/g, '').trim();
+                if (portfolio && !/^https?:\/\//i.test(portfolio)) {
+                    portfolio = 'http://' + portfolio;
+                }
                 const mentor = cells[3].replace(/^"|"$/g, '').trim();
                 
                 let isMentor = false;
