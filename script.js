@@ -63,7 +63,8 @@ async function loadAlumniData() {
                     isMentor = true;
                 }
 
-                const situation = (cells[4] || '').replace(/^"|"$/g, '').trim();
+                let situation = (cells[4] || '').replace(/^"|"$/g, '').trim();
+                situation = situation.replace(' (Chômage)', '');
                 if (situation.toLowerCase().includes('en poste')) {
                     enPosteCount++;
                 } else if (situation.toLowerCase().includes('freelance')) {
