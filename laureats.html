@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lauréats - Solicode Alumni</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- GLOW BLOBS -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2" style="top: 20%; right: 10%; bottom: auto;"></div>
+
+    <!-- NAV -->
+    <nav>
+        <a class="nav-logo" href="index.html">
+            <img src="images/logo.png" alt="Solicode" style="height: 88px;">
+            <span style="color:var(--muted); margin-left: -5px;">- ALUMNI</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Réseau</a></li>
+            <li><a href="laureats.html" style="color: var(--white);">Lauréats</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="index.html#join">Rejoindre</a></li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIBmWB9w_yhSmlU2kKXzIRruyi4ViI-cz9RGdixICE_QmEcA/viewform"
+            target="_blank" class="nav-cta">
+            <i data-lucide="plus"></i>
+            Rejoindre
+        </a>
+    </nav>
+
+    <!-- LAUREATS SECTION -->
+    <section class="section" style="min-height: 70vh; padding-top: 60px;">
+        <div class="section-header">
+            <div class="section-tag">// Communauté</div>
+            <div class="section-title">Nos <span class="y">Lauréats</span> Inscrits</div>
+            <p style="color: var(--muted); margin-top: 16px; max-width: 600px; line-height: 1.7;">
+                Découvrez les talents digitaux de la communauté Solicode. Connectez-vous et explorez leurs portfolios.
+            </p>
+        </div>
+
+        <div id="laureats-grid" class="features-grid">
+            <!-- Loader while fetching CSV -->
+            <div style="color: var(--muted); font-family: 'Space Mono', monospace; padding: 40px 0;">
+                <i data-lucide="loader" class="spinner" style="animation: spin 2s linear infinite; margin-right: 10px; vertical-align: middle;"></i>
+                Chargement des profils...
+            </div>
+            <style>
+                @keyframes spin { 100% { transform: rotate(360deg); } }
+            </style>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="Solicode" style="height: 80px;">
+            <span
+                style="color:var(--muted); margin-left: -5px; font-family: 'Space Mono', monospace; font-size: .6rem; letter-spacing: .1em;">-
+                ALUMNI</span>
+        </div>
+        <div class="footer-copy">© 2026 Solicode · Tous droits réservés</div>
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+</body>
+
+</html>
