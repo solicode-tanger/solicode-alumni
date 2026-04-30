@@ -103,43 +103,9 @@ async function loadAlumniData() {
         // Render table if on laureats page
         const tableContainer = document.getElementById('laureats-grid');
         if (tableContainer) {
-            tableContainer.innerHTML = '';
-            laureatsList.forEach(l => {
-                const card = document.createElement('div');
-                card.className = 'laureat-card feature-card'; // Reuse some styling
-                
-                let portfolioHtml = l.portfolio 
-                    ? `<a href="${l.portfolio}" target="_blank" class="btn-ghost" style="padding: 8px 16px; font-size: .8rem; margin-top: 16px;"><i data-lucide="external-link" style="width: 14px; height: 14px;"></i> Portfolio</a>`
-                    : `<span style="color: var(--muted); font-size: .8rem; margin-top: 16px; display: inline-block;">Pas de portfolio</span>`;
-
-                let mentorBadge = l.isMentor 
-                    ? `<div style="position: absolute; top: 24px; right: 24px; color: var(--yellow); display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-family: 'Space Mono', monospace; background: rgba(245, 194, 40, 0.1); padding: 6px 12px; border-radius: 20px; border: 1px solid rgba(245, 194, 40, 0.3);" title="Mentor Solicode"><i data-lucide="award" style="width: 14px; height: 14px;"></i> Mentor</div>` 
-                    : '';
-
-                let statusIcon = 'user';
-                let statusColor = 'var(--blue-lt)';
-                if (l.situation && l.situation.toLowerCase().includes('en poste')) { statusIcon = 'briefcase'; statusColor = '#6ED8A0'; }
-                else if (l.situation && l.situation.toLowerCase().includes('freelance')) { statusIcon = 'rocket'; statusColor = 'var(--yellow)'; }
-                else if (l.situation && l.situation.toLowerCase().includes('recherche')) { statusIcon = 'search'; statusColor = '#FF5F57'; }
-                else if (l.situation && l.situation.toLowerCase().includes('études')) { statusIcon = 'graduation-cap'; statusColor = '#a855f7'; }
-
-                let statusBadge = l.situation 
-                    ? `<div style="font-size: .8rem; color: var(--muted); margin-top: 12px; display: flex; align-items: center; gap: 8px;"><i data-lucide="${statusIcon}" style="width: 16px; height: 16px; color: ${statusColor}"></i> ${l.situation}</div>`
-                    : '';
-
-                card.innerHTML = `
-                    ${mentorBadge}
-                    <div class="feature-icon" style="border-color: ${statusColor}40; color: ${statusColor}"><i data-lucide="${statusIcon}"></i></div>
-                    <h3 style="padding-right: ${l.isMentor ? '80px' : '0'}; margin-bottom: 4px;">${l.prenom} ${l.nom}</h3>
-                    ${statusBadge}
-                    ${portfolioHtml}
-                `;
-                tableContainer.appendChild(card);
-            });
-            // Re-initialize lucide icons for new elements
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
+            window.allLaureats = laureatsList; // Store globally for filtering
+            renderLaureats(laureatsList);
+            setupFilters();
         }
         
     } catch (error) {
@@ -160,4 +126,78 @@ function animateCounter(element, target) {
             element.textContent = target; // Ensure exact final value
         }
     }, stepTime);
+}
+
+function renderLaureats(list) {
+    const tableContainer = document.getElementById('laureats-grid');
+    if (!tableContainer) return;
+    
+    tableContainer.innerHTML = '';
+    
+    if (list.length === 0) {
+        tableContainer.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px; font-family: 'Space Mono', monospace;">Aucun profil trouvé pour ce filtre.</div>`;
+        return;
+    }
+
+    list.forEach(l => {
+        const card = document.createElement('div');
+        card.className = 'laureat-card feature-card'; // Reuse some styling
+        
+        let portfolioHtml = l.portfolio 
+            ? `<a href="${l.portfolio}" target="_blank" class="btn-ghost" style="padding: 8px 16px; font-size: .8rem; margin-top: 16px;"><i data-lucide="external-link" style="width: 14px; height: 14px;"></i> Portfolio</a>`
+            : `<span style="color: var(--muted); font-size: .8rem; margin-top: 16px; display: inline-block;">Pas de portfolio</span>`;
+
+        let mentorBadge = l.isMentor 
+            ? `<div style="position: absolute; top: 24px; right: 24px; color: var(--yellow); display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-family: 'Space Mono', monospace; background: rgba(245, 194, 40, 0.1); padding: 6px 12px; border-radius: 20px; border: 1px solid rgba(245, 194, 40, 0.3);" title="Mentor Solicode"><i data-lucide="award" style="width: 14px; height: 14px;"></i> Mentor</div>` 
+            : '';
+
+        let statusIcon = 'user';
+        let statusColor = 'var(--blue-lt)';
+        if (l.situation && l.situation.toLowerCase().includes('en poste')) { statusIcon = 'briefcase'; statusColor = '#6ED8A0'; }
+        else if (l.situation && l.situation.toLowerCase().includes('freelance')) { statusIcon = 'rocket'; statusColor = 'var(--yellow)'; }
+        else if (l.situation && l.situation.toLowerCase().includes('recherche')) { statusIcon = 'search'; statusColor = '#FF5F57'; }
+        else if (l.situation && l.situation.toLowerCase().includes('études')) { statusIcon = 'graduation-cap'; statusColor = '#a855f7'; }
+
+        let statusBadge = l.situation 
+            ? `<div style="font-size: .8rem; color: var(--muted); margin-top: 12px; display: flex; align-items: center; gap: 8px;"><i data-lucide="${statusIcon}" style="width: 16px; height: 16px; color: ${statusColor}"></i> ${l.situation}</div>`
+            : '';
+
+        card.innerHTML = `
+            ${mentorBadge}
+            <div class="feature-icon" style="border-color: ${statusColor}40; color: ${statusColor}"><i data-lucide="${statusIcon}"></i></div>
+            <h3 style="padding-right: ${l.isMentor ? '80px' : '0'}; margin-bottom: 4px;">${l.prenom} ${l.nom}</h3>
+            ${statusBadge}
+            ${portfolioHtml}
+        `;
+        tableContainer.appendChild(card);
+    });
+    // Re-initialize lucide icons for new elements
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+function setupFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    if (!filterBtns.length) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Remove active class from all
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add to current
+            const target = e.currentTarget;
+            target.classList.add('active');
+
+            const filterValue = target.getAttribute('data-filter');
+            
+            if (filterValue === 'all') {
+                renderLaureats(window.allLaureats);
+            } else if (filterValue === 'mentor') {
+                renderLaureats(window.allLaureats.filter(l => l.isMentor));
+            } else {
+                renderLaureats(window.allLaureats.filter(l => l.situation && l.situation.toLowerCase().includes(filterValue)));
+            }
+        });
+    });
 }

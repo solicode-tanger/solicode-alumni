@@ -48,6 +48,43 @@
             </p>
         </div>
 
+        <div class="filters-container" style="margin-bottom: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="mentor"><i data-lucide="award" style="width: 14px; height: 14px;"></i> Mentors</button>
+            <button class="filter-btn" data-filter="en poste"><i data-lucide="briefcase" style="width: 14px; height: 14px;"></i> En Poste</button>
+            <button class="filter-btn" data-filter="freelance"><i data-lucide="rocket" style="width: 14px; height: 14px;"></i> Freelance</button>
+            <button class="filter-btn" data-filter="recherche"><i data-lucide="search" style="width: 14px; height: 14px;"></i> En Recherche</button>
+            <button class="filter-btn" data-filter="études"><i data-lucide="graduation-cap" style="width: 14px; height: 14px;"></i> Études</button>
+        </div>
+
+        <style>
+            .filter-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(140, 145, 196, 0.2);
+                color: var(--muted);
+                font-family: 'DM Sans', sans-serif;
+                font-size: .85rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all .2s;
+            }
+            .filter-btn:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: var(--white);
+            }
+            .filter-btn.active {
+                background: rgba(58, 69, 185, 0.2);
+                border-color: var(--blue-lt);
+                color: var(--white);
+            }
+            .filter-btn.active[data-filter="mentor"] { border-color: var(--yellow); background: rgba(245, 194, 40, 0.15); color: var(--yellow); }
+        </style>
+
         <div id="laureats-grid" class="features-grid">
             <!-- Loader while fetching CSV -->
             <div style="color: var(--muted); font-family: 'Space Mono', monospace; padding: 40px 0;">
