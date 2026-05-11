@@ -104,6 +104,27 @@ async function loadAlumniData() {
         const tableContainer = document.getElementById('laureats-grid');
         if (tableContainer) {
             window.allLaureats = laureatsList; // Store globally for filtering
+
+            // Add counts to filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                const filterValue = btn.getAttribute('data-filter');
+                let count = 0;
+                if (filterValue === 'all') count = inscritsCount;
+                else if (filterValue === 'mentor') count = mentorsCount;
+                else if (filterValue === 'en poste') count = enPosteCount;
+                else if (filterValue === 'freelance') count = freelanceCount;
+                else if (filterValue === 'recherche') count = rechercheCount;
+                else if (filterValue === 'études') count = etudeCount;
+
+                const countSpan = document.createElement('span');
+                countSpan.style.opacity = '0.6';
+                countSpan.style.marginLeft = '4px';
+                countSpan.style.fontSize = '0.9em';
+                countSpan.textContent = `(${count})`;
+                btn.appendChild(countSpan);
+            });
+
             renderLaureats(laureatsList);
             setupFilters();
         }
@@ -131,6 +152,11 @@ function animateCounter(element, target) {
 function renderLaureats(list) {
     const tableContainer = document.getElementById('laureats-grid');
     if (!tableContainer) return;
+
+    const countContainer = document.getElementById('results-count');
+    if (countContainer) {
+        countContainer.textContent = `// ${list.length} profil${list.length > 1 ? 's' : ''} affiché${list.length > 1 ? 's' : ''}`;
+    }
     
     tableContainer.innerHTML = '';
     
